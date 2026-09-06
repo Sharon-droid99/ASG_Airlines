@@ -20,12 +20,19 @@ The relationships are based on flight ID, passenger ID, and booking ID.
 ## Data Engineering Pipeline
 
 Data Ingestion
+
 → Data Profiling
+
 → Data Cleaning
+
 → Data Standardization
+
 → Data Transformation
+
 → Analytical Data Model
+
 → KPI Analysis
+
 → Power BI Dashboard
 
 ## Data Quality and Cleaning
@@ -51,7 +58,9 @@ Conflicting flight ID 6F250 was flagged as ambiguous rather than guessing which 
 
 The dataset contains sensitive passenger and booking information including Aadhaar numbers, passport numbers, phone numbers, email addresses, and emergency contact details.
 
-Sensitive raw data was excluded from the GitHub repository. Analytical datasets were minimized to the fields required for reporting.
+Sensitive raw data was excluded from the GitHub repository. Masked versions were created where required for inspection, while analytical datasets were minimized to the fields required for reporting.
+
+The original source Excel file containing PII is retained locally and is excluded from version control using `.gitignore`.
 
 ## Analytical Model
 
@@ -83,18 +92,27 @@ The final analytical model provides:
 
 ## Power BI Dashboard
 
-The Power BI report contains:
+The Power BI report contains three interactive pages designed for operational and business analysis.
 
 ### Executive Overview
-Provides KPI cards, airline distribution, booking status, booking lead-time analysis, and interactive filters.
+
+Provides KPI cards, airline distribution, booking status, booking lead-time analysis, revenue insights, and interactive filters.
+
+![ASG Airlines Executive Overview](images/dashboard_overview.png)
 
 ### Route & Duration Analysis
-Provides top route performance, average duration by airline, duration categories, and airline filtering.
+
+Provides route analysis, average flight duration by airline, flight duration categories, and airline filtering.
+
+![ASG Airlines Route & Duration Analysis](images/route_duration.png)
 
 ### Data Quality & Anomaly Insights
+
 Highlights missing payments, missing booking statuses, ambiguous flight IDs, overnight flights, and other data-quality observations.
 
-The dataset does not contain scheduled versus actual flight times, so a reliable delay KPI could not be calculated.
+![ASG Airlines Data Quality & Anomaly Insights](images/data_quality.png)
+
+The dataset does not contain scheduled versus actual flight times, so a reliable delay KPI could not be calculated. Instead, data-quality anomalies and inconsistencies were analysed and reported.
 
 ## Tools Used
 
@@ -107,11 +125,12 @@ The dataset does not contain scheduled versus actual flight times, so a reliable
 
 ## Project Files
 
-- `01_data_inspection.ipynb` — data inspection, cleaning, transformation, and analytical preparation
+- `01_ASG_Airlines.ipynb` — data inspection, cleaning, transformation, and analytical preparation
 - `ASG_Airlines_Dashboard.pbix` — Power BI dashboard
 - `data/processed/` — processed analytical datasets
-- `requirements.txt` — Python dependencies
 - `documentation/` — project documentation
+- `requirements.txt` — Python dependencies
+- `images/` — Power BI dashboard screenshots
 
 ## Final Outcome
 
